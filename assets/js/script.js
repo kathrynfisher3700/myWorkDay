@@ -31,7 +31,7 @@ day.innerHTML = today;
 //This is the hour
 let hour = dayjs().format("H");
 console.log(hour);
-let hourNow = Number.parseFloat("hour");
+let hourNow = Number.parseFloat(hour);
 console.log(hourNow);
 
 
