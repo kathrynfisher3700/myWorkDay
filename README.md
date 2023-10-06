@@ -30,10 +30,3 @@ Special thanks to my classmate Jared in the UCF Coding Bootcamp.
 
 Day.js instructions can be found here: [day.js.org](https://day.js.org/docs/en/display/format)
 
-
-## Improvements
-
-It is my goal to add the following:
-
--local storage set and get for information typed into each hour block.
-

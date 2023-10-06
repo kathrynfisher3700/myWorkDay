@@ -1,5 +1,7 @@
 //_.~"~._.~"~._.~"~._.~"~.__.~"~._.~"~._.~"~._.~"~.__.~"~._.~"~._.~"~._.~"~._
 //Grabs current date from day.js and stores into element in header
+$( document ).ready(function() {
+    console.log( "ready!" );
 
 let day = document.getElementById("currentDay"); //element
 let today = dayjs().format("MMMM D, YYYY"); //current day
@@ -20,7 +22,7 @@ for (let i = 9; i <= 17; i++) { //hour box range is 9-17
   if (hour > i) {
     $(`#hour-${i}`).addClass("past"); //if hour has past, turn box gray
   } else if (hour == i) {
-    $(`#hour-${i}`).addClass("present"); //if hour current, turn box green
+    $(`#hour-${i}`).addClass("present"); //if hour current, turn box red
   } else {
     $(`#hour-${i}`).addClass("future"); //if hour in future, turn box green
   }
@@ -28,16 +30,28 @@ for (let i = 9; i <= 17; i++) { //hour box range is 9-17
 //_.~"~._.~"~._.~"~._.~"~.__.~"~._.~"~._.~"~._.~"~.__.~"~._.~"~._.~"~._.~"~._
 //Grabs save button element
 
-let saveBtn = document.getElementsByClassName("saveBtn");
-console.log(saveBtn); //check
-
 //Grabs value in text boxes
-let userText = document.querySelectorAll("description");
-let userProject = {
-  text: userText.value,
-};
+// let userText = document.querySelectorAll("description");
+// let userProject = {
+//   text: userText.value,
+// }; 
+
 //Trying to add to local storage ---- more to learn but will update soon
 //does not throw error
-$("textarea").click(function () {
-  localStorage.setItem("userProject", JSON.stringify(userProject));
+$(".saveBtn").on('click', function (){
+  let value = $(this).siblings(".description").val(); 
+  let time = $(this).parent().attr('id');
+  localStorage.setItem(time, value);
+});
+
+$('#hour-9 .description').val(localStorage.getItem('hour-9'));
+$('#hour-10 .description').val(localStorage.getItem('hour-10'));
+$('#hour-11 .description').val(localStorage.getItem('hour-11'));
+$('#hour-12 .description').val(localStorage.getItem('hour-12'));
+$('#hour-13 .description').val(localStorage.getItem('hour-13'));
+$('#hour-14 .description').val(localStorage.getItem('hour-14'));
+$('#hour-15 .description').val(localStorage.getItem('hour-15'));
+$('#hour-16 .description').val(localStorage.getItem('hour-16'));
+$('#hour-17 .description').val(localStorage.getItem('hour-17'));
+
 });
