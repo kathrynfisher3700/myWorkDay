@@ -46,11 +46,19 @@ console.log(hourNow);
   }
 }
 
+//grab button
+let saveBtn = document.getElementsByClassName("saveBtn");
+console.log(saveBtn); //worked
+
+//grab typed info
+let userText = document.querySelectorAll("description");
+let userProject = {
+    text: userText.value
+}
+//add event listener
+$("textarea").click(function(){
+  localStorage.setItem("userProject", JSON.stringify(userProject));
+});
 
 
-//////Time Block reference for current hour 
-// hourCheck = timeBlock[0].outerText;
-// hourCheck = hourCheck.substring(0,2);
-// hourCheck = Number.parseFloat(hourCheck);
-// console.log(hourCheck);
   
