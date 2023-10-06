@@ -28,22 +28,15 @@ for (let i = 9; i <= 17; i++) { //hour box range is 9-17
   }
 }
 //_.~"~._.~"~._.~"~._.~"~.__.~"~._.~"~._.~"~._.~"~.__.~"~._.~"~._.~"~._.~"~._
-//Grabs save button element
 
-//Grabs value in text boxes
-// let userText = document.querySelectorAll("description");
-// let userProject = {
-//   text: userText.value,
-// }; 
-
-//Trying to add to local storage ---- more to learn but will update soon
-//does not throw error
+//Save button sets local storage for specific time box and value of text
 $(".saveBtn").on('click', function (){
   let value = $(this).siblings(".description").val(); 
   let time = $(this).parent().attr('id');
   localStorage.setItem(time, value);
 });
 
+//gets value from local storage.
 $('#hour-9 .description').val(localStorage.getItem('hour-9'));
 $('#hour-10 .description').val(localStorage.getItem('hour-10'));
 $('#hour-11 .description').val(localStorage.getItem('hour-11'));
